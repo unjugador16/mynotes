@@ -2,6 +2,7 @@
 #el cero no se puede colocar como numero inicial = si el primer número ingresado es el cero, que se agregue "artificialmente"
 
 from random import randint
+from re import L
 list_pc = []
 
 while True:
@@ -10,7 +11,7 @@ while True:
         list_pc.append(i) # si no esta en la lista, que se agrege, de otra forma que se repita el ciclo
     if len(list_pc) == 4: # hasta tener 4 dígitos diferentes
         break
-print(list_pc)
+
 while True:
     fijas = 0
     set_pc = set()
@@ -21,12 +22,13 @@ while True:
         num_us = int(input('\nIngrese un número de 4 dígitos, los cuales no pueden repetirse: '))
 
         while True:
-            print(num_us)
             list_us.insert(0, num_us%10) # se coje el ultimo numero ingresado y se agrega en una lista
             #si el primer número ingresado es el cero, que se agregue "artificialmente"
             num_us = int(num_us/10) # se elimina ese ultimo número ingresado hasta no tener ningun digito
             if num_us == 0:
                 break
+        if len(list_us) < 4: # esto mira si la lista tiene 3 digitos
+            list_us.insert(0,0) # si si, le agrega un cero al inicio
 
         con = set(list_us)
         if len(con) != 4 or len(list_us) != 4: # se rectifica si no se repite ningun numero 
