@@ -1,8 +1,4 @@
-#BUGS
-#el cero no se puede colocar como numero inicial = si el primer número ingresado es el cero, que se agregue "artificialmente"
-
 from random import randint
-from re import L
 list_pc = []
 
 while True:
@@ -23,7 +19,6 @@ while True:
 
         while True:
             list_us.insert(0, num_us%10) # se coje el ultimo numero ingresado y se agrega en una lista
-            #si el primer número ingresado es el cero, que se agregue "artificialmente"
             num_us = int(num_us/10) # se elimina ese ultimo número ingresado hasta no tener ningun digito
             if num_us == 0:
                 break
@@ -45,7 +40,7 @@ while True:
             if u == p:
                 fijas += 1 # si si lo hay, que se sume uno a las fijas
             else:
-                set_pc.add(list_pc[i]) # si no, que se agreguen a unos conuntos
+                set_pc.add(list_pc[i]) # si no, que se agreguen a unos conjuntos
                 set_us.add(list_us[i])
         a = set_pc & set_us # se mire si hay algun número en común entre esos conjuntos
         picas = len(a) # el número de valores similares es el número de picas
