@@ -1,5 +1,6 @@
 """
 POO 
+"""
 
 class ClasePrueba:
     variable = "blah"
@@ -39,7 +40,7 @@ print(p2.color)
 
 p.ladrar()
 p.ladrar("silencioso")
-"""
+
 #======================================= metodo iniciador ========================================#
 
 class Sapo:
