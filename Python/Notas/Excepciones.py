@@ -1,4 +1,3 @@
-"""
 while True:
     try: #intente hacer esta porcion de codigo
         numero = int(input('ingrese un numero: '))
@@ -30,7 +29,7 @@ def dividir():
 dividir()
 
 #====================================== propias excepciones ======================================#
-"""
+
 def verificar_edad(edad):
     if edad < 0: #como una edad no puede ser negativa
         raise ValueError('la edad no puede ser negativa') 
