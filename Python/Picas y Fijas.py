@@ -15,23 +15,42 @@ while True:
     list_us = []
     
     while True:
-        num_us = int(input('\nIngrese un número de 4 dígitos, los cuales no pueden repetirse: '))
 
-        while True:
-            list_us.insert(0, num_us%10) # se coje el ultimo numero ingresado y se agrega en una lista
-            num_us = int(num_us/10) # se elimina ese ultimo número ingresado hasta no tener ningun digito
-            if num_us == 0:
-                break
-        if len(list_us) < 4: # esto mira si la lista tiene 3 digitos
-            list_us.insert(0,0) # si si, le agrega un cero al inicio
+        num_us = input('\nIngrese un número de 4 dígitos, los cuales no pueden repetirse: ')
+
+        er = 1
+        em = 0
+                            #==comandos==#
+        if num_us == "clear": #un comando para salir xd
+            em = 1
+            break
+        if num_us == "numpc": #un comando para mostrar el numero del computador
+            print(list_pc)
+            er = 0
+
+        for i in num_us:
+            try:
+                i = int(i)
+            except:
+                if er == 0 or em == 1:
+                    continue
+                else:
+                    print(f"\nError, {i} no es un número")
+            list_us.append(i)
 
         con = set(list_us)
-        if len(con) != 4 or len(list_us) != 4: # se rectifica si no se repite ningun numero 
-            list_us.clear() # si se repite algun numero que se borre la lista y que se vuelva a llenar
-            print('\nError, el número debe ser de 4 dígitos que no se repitan') 
-        
+        if len(con) != 4 or len(list_us) != 4: # se rectifica si no se repite ningun numero y que es de 4 digitos 
+            if er == 0 or em == 1:
+                continue
+            else:
+                list_us.clear() # si se repite algun numero que se borre la lista y que se vuelva a llenar
+                print('\nError, el número debe ser de 4 dígitos que no se repitan') 
         else:
             break
+            
+    if em == 1:
+        print('\nSaliendo...\n')
+        break
 
     if list_us != list_pc:
         for i in range(0,4): # se verifica en cada una de los 4 indices de la lista
