@@ -18,21 +18,21 @@ while True:
 
         num_us = input('\nIngrese un número de 4 dígitos, los cuales no pueden repetirse: ')
 
-        er = 1
-        em = 0
-                            #==comandos==#
+        cn = 0
+        cs = 0
+                        #==comandos==#
         if num_us == "clear": #un comando para salir xd
-            em = 1
+            cs = 1
             break
         if num_us == "numpc": #un comando para mostrar el numero del computador
             print(list_pc)
-            er = 0
+            cn = 1
 
         for i in num_us:
             try:
                 i = int(i)
             except:
-                if er == 0 or em == 1:
+                if cn == 1:
                     continue
                 else:
                     print(f"\nError, {i} no es un número")
@@ -40,7 +40,7 @@ while True:
 
         con = set(list_us)
         if len(con) != 4 or len(list_us) != 4: # se rectifica si no se repite ningun numero y que es de 4 digitos 
-            if er == 0 or em == 1:
+            if cn == 1:
                 continue
             else:
                 list_us.clear() # si se repite algun numero que se borre la lista y que se vuelva a llenar
@@ -48,7 +48,7 @@ while True:
         else:
             break
             
-    if em == 1:
+    if cs == 1:
         print('\nSaliendo...\n')
         break
 
