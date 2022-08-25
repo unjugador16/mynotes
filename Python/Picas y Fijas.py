@@ -1,5 +1,6 @@
 from random import randint
 list_pc = []
+intentos = 1
 
 while True:
     i = randint(0,9) # se escoje un número del 0 al 9
@@ -17,7 +18,7 @@ while True:
     while True:
 
         num_us = input('\nIngrese un número de 4 dígitos, los cuales no pueden repetirse: ')
-
+        
         cn = 0
         cs = 0
                         #==comandos==#
@@ -51,8 +52,9 @@ while True:
     if cs == 1:
         print('\nSaliendo...\n')
         break
-
+    
     if list_us != list_pc:
+        intentos += 1
         for i in range(0,4): # se verifica en cada una de los 4 indices de la lista
             u = list_us[i] # y se comparan para ver si hay algun valor igual con
             p = list_pc[i] # ese mismo indice
@@ -66,4 +68,5 @@ while True:
         print(f'\nPicas : {picas} , Fijas: {fijas}')
     else:
         print(f'\n*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*\nGanaste, el número era {list_pc}\n*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*\n')
+        print(f'Lo has completado en {intentos} intentos')
         break
